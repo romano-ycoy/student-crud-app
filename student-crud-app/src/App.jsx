@@ -22,5 +22,9 @@ const App = () => {
 
 export default App;
 
+<<<<<<< HEAD
 // Trying git!
 // It's fun!!
+=======
+// Trying git!
+>>>>>>> 73c116cb46e8d948b1ed89d0850adf12f4f086ab
