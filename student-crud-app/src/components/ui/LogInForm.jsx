@@ -24,10 +24,10 @@ const LoginForm = () => {
     return (
         <form
             onSubmit={handleSubmit}
-            className="flex flex-col justify-center gap-3 h-screen w-full bg-white p-[5%]"
+            className="flex flex-col justify-center gap-1 h-screen w-full bg-white p-[5%]"
         >
 
-            <h1 className="text-3xl font-bold text-black font-poppins">Welcome back!</h1>
+            <h1 className="text-3xl font-bold text-black font-poppins mb-7">Welcome back!</h1>
 
             {/* Email */}
             <InputField
