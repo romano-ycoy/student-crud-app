@@ -4,13 +4,13 @@ import loginImg from "../assets/images/student-at-library.jpg"
 const LoginPage = () => {
 
     return (
-        <div className="h-screen flex flex-col md:flex-row w-screen ">
+        <div className="h-screen flex flex-col md:flex-row w-screen">
             {/*Left Side - Image */}
-            <div className="w-full">
+            <div className="w-screen h-screen">
                 <img
                     src={loginImg}
                     alt="student at the library"
-                    className="w-full h-full object-cover"
+                    className="w-screen h-full object-cover"
                 />
             </div>
 
