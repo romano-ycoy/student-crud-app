@@ -19,7 +19,7 @@ const InputField = ({
     return (
         <div className="flex flex-col relative">
             {label && (
-                <label htmlFor={id} className="mb-1 font-normal">{label}</label>
+                <label htmlFor={id} className="mb-1 font-poppins">{label}</label>
             )}
 
             {/*(optional, not for password field)*/}
@@ -38,7 +38,7 @@ const InputField = ({
 
             <input
                 id={id}
-                className={`border border-gray-300 rounded-sm focus:ring-2 focus:ring focus:ring-red-500 focus:outline-none h-10 px-3 mb-4 placeholder-gray-400 placeholder:font-light${className}`}
+                className={`border border-gray-300 rounded-sm focus:ring-2 focus:ring focus:ring-red-500 focus:outline-none h-10 px-3 mb-4 placeholder-gray-400 placeholder:font-poppins${className}`}
                 type={inputType}
                 value={value}
                 onChange={onChange}
