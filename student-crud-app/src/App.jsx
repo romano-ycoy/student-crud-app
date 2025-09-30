@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/ui/Layout";
-import LoginPage from "./pages/LoginPage";
+import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Registration from "./pages/Registration";
 
@@ -9,7 +9,7 @@ const App = () => {
   return (
     <Routes>
       {/* Public Route */}
-      <Route path="/" element={<LoginPage />} />
+      <Route path="/" element={<Login />} />
 
       {/*Protected routes (with Layout) */}
       <Route element={<Layout />}>
