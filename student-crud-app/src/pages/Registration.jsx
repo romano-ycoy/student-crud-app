@@ -54,6 +54,9 @@ const Registration = () => {
     const [email, setEmail] = useState("");
     const [mobileNumber, setMobileNumber] = useState("");
 
+    // editing state
+    const [editingStudent, setEditingStudent] = useState(null);
+
     // filter safely
     const filteredStudents = students.filter((student) =>
         (`${student.firstName ?? ""} ${student.lastName ?? ""}`)
@@ -63,7 +66,18 @@ const Registration = () => {
 
     // edit
     const handleEdit = (student) => {
-        alert(`Editing ${student.lastName}...`);
+        setEditingStudent(student);
+
+        // Pre-fill the form fields
+        setPrefix(student.prefix || "");
+        setCustomPrefix(student.prefix === "Other" ? student.prefix : "");
+        setFirstName(student.firstName);
+        setLastName(student.lastName);
+        setEmail(student.email || "");
+        setMobileNumber(student.mobileNumber || "");
+
+        // Open modal
+        setIsModalOpen(true);
     };
 
     // delete
@@ -75,38 +89,41 @@ const Registration = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // prefix validation
-        if (!prefix || !firstName.trim() || !lastName.trim()) {
-            alert("Please fill required fields: prefix, first name and last name.");
-            return;
-        }
-
         const finalPrefix = prefix === "Other" ? customPrefix : prefix;
 
-        console.log("Final Prefix", finalPrefix);
+        if (editingStudent) {
+            // update
+            setStudents((prev) =>
+                prev.map((s) =>
+                    s.id === editingStudent.id
+                        ? { ...s, prefix: finalPrefix, firstName, lastName, email, mobileNumber }
+                        : s
+                )
+            );
+        } else {
+            // add
+            const newStudent = {
+                id: Date.now(),
+                prefix: finalPrefix,
+                firstName,
+                lastName,
+                email,
+                mobileNumber,
+            };
+            setStudents((prev) => [...prev, newStudent]);
+        }
 
-        const newStudent = {
-            id: Date.now(),
-            prefix: finalPrefix,
-            firstName: firstName.trim(),
-            lastName: lastName.trim(),
-            email: email.trim() || null,
-            mobileNumber: mobileNumber.trim() || null,
-        };
-
-        setStudents((prev) => [...prev, newStudent]);
-
-        // reset form
+        // reset everything
+        setEditingStudent(null);
         setPrefix("");
         setCustomPrefix("");
         setFirstName("");
         setLastName("");
         setEmail("");
         setMobileNumber("");
-
-        // close modal
         setIsModalOpen(false);
     };
+
 
     return (
         <div className="w-full h-full flex flex-col">
@@ -185,7 +202,7 @@ const Registration = () => {
                             type="submit"
                             className="text-white bg-emerald-500 px-5 py-2 w-full rounded-sm font-bold font-poppins tracking-normal cursor-pointer my-4"
                         >
-                            Submit
+                            {editingStudent ? "Update" : "Submit"}
                         </Button>
                     </form>
                 </Modal>
