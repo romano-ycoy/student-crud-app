@@ -38,6 +38,8 @@ const LoginForm = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 Icon={Mail}
+                className="border border-gray-300 rounded-sm focus:ring-2 focus:ring focus:ring-red-500 focus:outline-none h-10 px-3 mb-4 placeholder-gray-400
+                font-poppins placeholder:font-poppins"
             />
 
             {/* Password */}
@@ -48,6 +50,8 @@ const LoginForm = () => {
                 placeholder="•••••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className="border border-gray-300 rounded-sm focus:ring-2 focus:ring focus:ring-red-500 focus:outline-none h-10 px-3 mb-4 placeholder-gray-400
+                font-poppins placeholder:font-poppins"
             />
 
             <CheckBox
