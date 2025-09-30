@@ -1,4 +1,4 @@
-import { Menu, UserCircle } from "lucide-react";
+import { Menu, CircleUserRound } from "lucide-react";
 import Button from "./reusable/Button";
 
 const Navbar = () => {
@@ -9,7 +9,7 @@ const Navbar = () => {
            </Button>
 
            <Button className="cursor-pointer">
-            <UserCircle className="h-6 w-6 text-white"/>
+            <CircleUserRound className="h-6 w-6 text-white"/>
            </Button>
         </header>
     );
